@@ -1,0 +1,36 @@
+plugins {
+  id 'java'
+  id 'com.github.johnrengelman.shadow' version '1.2.2'
+}
+
+apply plugin: 'application'
+apply plugin: 'com.github.johnrengelman.shadow'
+apply plugin: 'idea'
+
+ext {
+    jposeeVersion = '2.0.9-SNAPSHOT'
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+mainClassName = 'com.vmantek.demo.Main'
+
+repositories {
+    jcenter()
+    maven { url 'http://dl.bintray.com/vmantek/maven' }
+    mavenLocal()
+}
+
+dependencies {
+    compile "org.jpos.ee:jposee-core:${jposeeVersion}"
+    compile "org.jpos.ee:jposee-txn:${jposeeVersion}"
+    compile "org.jpos.ee:jposee-logback:${jposeeVersion}"
+    compile "org.jpos.ee:jposee-db-h2:${jposeeVersion}"
+    compile 'com.vmantek.utils.jpos:jpos-deployer-core:1.1.1'
+}
+
+shadowJar {
+  baseName = 'demo'
+  classifier = ''
+}

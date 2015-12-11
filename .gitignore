@@ -1,0 +1,19 @@
+# IDEA Ignores
+*.iml
+*.ipr
+*.iws
+.libs/
+.idea/
+out/
+# Eclipse Ignores
+.classpath
+.metadata
+.project
+.settings/
+.gradle
+target/
+log/
+build
+setup/
+Servers
+target
