@@ -2,17 +2,15 @@ package com.vmantek.demo;
 
 import com.vmantek.jpos.deployer.ResourceDeployer;
 import com.vmantek.jpos.deployer.simple.SimplePropertyResolver;
-import com.vmantek.jpos.deployer.spi.PropertyResolver;
 import org.jpos.q2.Q2;
 
 import java.io.File;
-import java.nio.file.Files;
 
 public class Main
 {
     public static void main(String... args) throws Exception
     {
-        File tmpDir = Files.createTempDirectory("jpos-Q2").toAbsolutePath().toFile();
+        File tmpDir = TempDeployTarget.create();
 
         SimplePropertyResolver resolver = new SimplePropertyResolver(tmpDir);
         resolver.addConfigFile("config/config.properties");
